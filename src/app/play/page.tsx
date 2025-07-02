@@ -901,15 +901,6 @@ function PlayPageClient() {
         lockLandscape();
       } else {
         unlock();
-        // 强制重绘逻辑，解决退出全屏的黑屏/白边问题
-        const playerEl = playerRef.current?.el as HTMLElement | null;
-        if (playerEl) {
-          playerEl.style.display = 'none';
-          setTimeout(() => {
-            playerEl.style.display = '';
-            setVH();
-          }, 0);
-        }
       }
     });
   }, [playerRef.current, setVH]);
